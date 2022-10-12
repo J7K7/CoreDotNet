@@ -1,26 +1,18 @@
-Microsoft.VisualStudio.Web.CodeGeneration.Design
-
+//Manage Nugget Package Manager
 Microsoft.EntityFrameworkCore.Tools
 
 Microsoft.EntityFrameworkCore.SqlServer
 
-Microsoft.VisualStudio.Web.CodeGeneration
 
-Microsoft.VisualStudio.Web.CodeGeneration.Util
-
-
+//Nugget Package Console
 Scaffold-DbContext "Connection String;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 
 
+//appSetting.json
 ,
   "ConnectionStrings": {
     "DBConnectionStrings": "Connection String;"
   }
 
-
+//Startup file
 services.AddDbContext<DICTDBContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DBConnectionStrings")));
-
-
-
-ConfigurationBuilder confBuilder = new ConfigurationBuilder();
-                optionsBuilder.UseSqlServer(confBuilder.Build().GetSection("ConnectionStrings:DBConnectionStrings").Value);
